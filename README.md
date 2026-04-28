@@ -28,7 +28,9 @@ sales-analysis-power-query-dax/
 ---
 🛠️ Tools & Techniques Used
 🔵 Power Query — Data Transformation
+
 Step	What Was Done
+
 Data Import	Loaded raw CSV into Power Query Editor
 Column Cleanup	Removed nulls, renamed headers, fixed data types
 Date Table	Created a custom Date dimension table (Year, Quarter, Month, Week, Day)
@@ -37,6 +39,7 @@ Merge Queries	Joined sales data with product lookup table
 Load to Model	Loaded all queries directly into the Excel Data Model
 ---
 🟠 Data Model — Relationships
+
 Table	Role	Relationship
 `Sales`	Fact Table	Many side
 `Product`	Dimension	One side → ProductID
@@ -70,6 +73,7 @@ Above Avg Revenue Flag =
 ```
 ---
 🔴 Pivot Tables
+
 Pivot Table	Rows	Values
 Yearly KPI Summary	Year	Revenue, Profit, COGS, Margin%, Transactions, Qty
 Monthly Profit Trend	MonthName	Profit, Transactions
@@ -80,7 +84,9 @@ Category Performance	Category, SubCategory	Revenue, Profit, Qty
 Top 10 Products	ProductName	Revenue, Profit, Margin%
 ---
 🟣 Charts & Dashboard
+
 Chart	Type	Sheet
+
 Monthly Revenue & Profit Trend	Line Chart	Time Series Dashboard
 Category Revenue Split	Bar Chart	Analysis 1
 Weekday vs Weekend Profit	Donut Chart	Analysis 2
@@ -91,6 +97,7 @@ Dynamic titles using cell references that update with slicer selection
 Conditional formatting applied to highlight above/below average values
 ---
 📈 Key Insights
+
 Bikes dominate — Mountain, Touring & Road Bikes contribute ~87% of total revenue
 Q4 outperforms Q3 by ~23% in profit — strong seasonal demand Oct–Dec
 40.6% profit margin maintained consistently across all product categories
@@ -99,12 +106,14 @@ Friday is the strongest sales day; Sunday is the lowest
 15 of 25 products unsold — opportunity for product mix optimization
 ---
 💼 Business Impact
+
 Inventory planning can prioritize high-margin Bike SKUs
 Q3 promotional campaigns can close the gap with Q4 performance
 Weekend-targeted offers can grow the 42.3% weekend profit share
 Unsold product review can free up working capital
 ---
 🚀 How to Use
+
 Download `sales_analysis.xlsm` from this repo
 Enable macros when prompted
 Use the Year slicer on the dashboard to filter all views
