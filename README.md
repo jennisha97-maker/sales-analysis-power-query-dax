@@ -27,11 +27,8 @@ sales-analysis-power-query-dax/
 ```
 ---
 🛠️ Tools & Techniques Used
-
 🔵 Power Query — Data Transformation
-
-Steps done
-
+Step	What Was Done
 Data Import	Loaded raw CSV into Power Query Editor
 Column Cleanup	Removed nulls, renamed headers, fixed data types
 Date Table	Created a custom Date dimension table (Year, Quarter, Month, Week, Day)
@@ -40,7 +37,6 @@ Merge Queries	Joined sales data with product lookup table
 Load to Model	Loaded all queries directly into the Excel Data Model
 ---
 🟠 Data Model — Relationships
-
 Table	Role	Relationship
 `Sales`	Fact Table	Many side
 `Product`	Dimension	One side → ProductID
@@ -63,15 +59,17 @@ YOY Revenue Change  =
     VAR PreviousYear = CALCULATE([Total Revenue], SAMEPERIODLASTYEAR(Date[OrderDate]))
     RETURN DIVIDE(CurrentYear - PreviousYear, PreviousYear, 0)
 
-Weekday Profit %    = DIVIDE( CALCULATE([Total Profit], Sales[WeekType] = "Week day"),
-        [Total Profit], 0)
+Weekday Profit %    =
+    DIVIDE(
+        CALCULATE([Total Profit], Sales[WeekType] = "Week day"),
+        [Total Profit], 0
+    )
 
 Above Avg Revenue Flag =
     IF([Total Revenue] >= AVERAGEX(ALL(Date[Year]), [Total Revenue]), "Above Avg", "Below Avg")
 ```
 ---
 🔴 Pivot Tables
-
 Pivot Table	Rows	Values
 Yearly KPI Summary	Year	Revenue, Profit, COGS, Margin%, Transactions, Qty
 Monthly Profit Trend	MonthName	Profit, Transactions
@@ -82,7 +80,6 @@ Category Performance	Category, SubCategory	Revenue, Profit, Qty
 Top 10 Products	ProductName	Revenue, Profit, Margin%
 ---
 🟣 Charts & Dashboard
-
 Chart	Type	Sheet
 Monthly Revenue & Profit Trend	Line Chart	Time Series Dashboard
 Category Revenue Split	Bar Chart	Analysis 1
@@ -94,7 +91,6 @@ Dynamic titles using cell references that update with slicer selection
 Conditional formatting applied to highlight above/below average values
 ---
 📈 Key Insights
-
 Bikes dominate — Mountain, Touring & Road Bikes contribute ~87% of total revenue
 Q4 outperforms Q3 by ~23% in profit — strong seasonal demand Oct–Dec
 40.6% profit margin maintained consistently across all product categories
@@ -103,7 +99,6 @@ Friday is the strongest sales day; Sunday is the lowest
 15 of 25 products unsold — opportunity for product mix optimization
 ---
 💼 Business Impact
-
 Inventory planning can prioritize high-margin Bike SKUs
 Q3 promotional campaigns can close the gap with Q4 performance
 Weekend-targeted offers can grow the 42.3% weekend profit share
@@ -123,5 +118,4 @@ Data Analyst | SQL · Power BI · Tableau · Excel · Python
 🔗 linkedin.com/in/jennisha-k-66a195191
 ---
 📄 License
-MIT License — free to use with attribution.
-******
+MIT License — free to use with attribution.**
