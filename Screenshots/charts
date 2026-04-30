@@ -1,6 +1,62 @@
-Add images in /screenshots folder:
+# Sales Analysis Dashboard | Excel + Power Query + Data Model + DAX
 
-Dashboard Overview
-Data Model Relationships
-DAX Measures
-Pivot Charts & Trends
+## Project Overview
+Designed an interactive Sales Analysis Dashboard in Microsoft Excel to monitor business performance across revenue, profit, transactions, products, geography, and time periods. Built using Power Query, Excel Data Model, Pivot Tables, Pivot Charts, and DAX Measures.
+
+## Business Objective
+Enable stakeholders to track KPIs, identify profitable trends, compare yearly growth, and analyze sales patterns for better decision-making.
+
+## Tools & Technologies
+- Microsoft Excel
+- Power Query
+- Power Pivot / Data Model
+- DAX
+- Pivot Tables
+- Pivot Charts
+- Slicers
+- Dashboard Design
+
+## Dataset Used
+AdventureWorks-style sales dataset containing:
+- Orders
+- Products
+- Customers
+- Geography
+- Dates
+- Revenue
+- Cost
+- Profit
+
+## Key Features
+- KPI Cards for Total Quantity, Revenue, COGS, Profit, Profit Margin, Transactions
+- Dynamic charts for Revenue / Profit / Transactions
+- Year-wise comparison analysis
+- Monthly trend analysis
+- Weekday sales performance
+- Quarterly revenue split
+- Country-level filtering using slicers
+- Fully interactive dashboard
+
+## Data Model
+Created star schema model with relationships between:
+
+- FactInternetSales
+- DimDate
+- DimProduct
+- DimCustomer
+- DimGeography
+- DimSalesTerritory
+
+## DAX Measures Used
+```DAX
+#Transaction = COUNTROWS(FactInternetSales)
+
+All product = COUNTROWS(DimProduct)
+
+Sold products = DISTINCTCOUNT(FactInternetSales[ProductKey])
+
+Unsold products = [All product] - [Sold products]
+
+% Profit Margin =
+DIVIDE(SUM(FactInternetSales[Total profit]),
+SUM(FactInternetSales[Total revenue]))
